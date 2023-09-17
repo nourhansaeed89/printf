@@ -1,1 +1,4 @@
-printf readme
+
+
+
+cat README.md
