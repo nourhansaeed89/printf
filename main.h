@@ -71,6 +71,16 @@ int _putchar(int c);
 int _isdigit(int c);
 int _strlen(char *s);
 
+/* params.c */
+void init_params(params_t *params, va_list ap);
+
+/* string.c */
+char *get_percision(char *p, params_t *params, va_list ap);
+
+/* _print2.c */
+int print_from_to(char *start, char *stop, char *except);
+int print_rev(va_list ap, params_t *params);
+int print_rot13(va_list ap, params_t *params);
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
