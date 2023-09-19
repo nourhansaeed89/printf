@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, formats);
 
-	for (j = 0; format &&[j] != '\0'; j++)
+	for (j = 0; format && format[j] != '\0'; j++)
 	{
 		if (format[j] != '%')
 		{
@@ -37,7 +37,8 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &j, list);
 			size = get_size(format, &j);
 			++j;
-			printed = handel_print_print(format, &j, list, buffer, flags, width, precision, size);
+			printed = handel_print_print(format, &j, list, buffer,
+					flags, width, precision, size);
 
 			if (printed == -1)
 				return (-1);
