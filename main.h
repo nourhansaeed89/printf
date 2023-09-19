@@ -70,14 +70,21 @@ int _putchar(int c);
 /* num.c */
 int _isdigit(int c);
 int _strlen(char *s);
+int print_number(char *str, params_t *params);
 int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
+
+/* number.c */
+char *convert(long int num, int base, int flags, params_t *params);
+int print_unsigned(va_list ap, params_t *params);
+/*int print_address(const char *ap, params_t *params);*/
+
 
 /* params.c */
 void init_params(params_t *params, va_list ap);
 
 /* string.c */
-char *get_percision(char *p, params_t *params, va_list ap);
+char *get_precision(char *p, params_t *params, va_list ap);
 
 /* _print2.c */
 int print_from_to(char *start, char *stop, char *except);
@@ -91,11 +98,11 @@ int print_s(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
 
 /* flags.c module */
-int get_flags(const char *format, int *j);
-int get_width(const char *format, int *f, va_list list);
 int (*get_specifier(char *s))(va_list list, params_t *params);
-int get_print_func(int (*get_specifier(char *s))(va_list ap, params_t *params));
+int get_print_func(int (*get_specifier(char *s))
+		(va_list ap, params_t *params));
 int get_modifier(char *s, params_t *params);
+int get_flag(char *s, params_t *params);
+char *get_width(char *s, params_t *params, va_list ap);
 int get_size(const char *format, int *i);
-void print_buffer(char buffer[], int *buff_ind);
 #endif
