@@ -67,7 +67,9 @@ int _printf(const char *format, ...);
 int _puts(char *str);
 int _putchar(int c);
 
-
+/* num.c */
+int _isdigit(int c);
+int _strlen(char *s);
 
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
@@ -82,7 +84,6 @@ int get_width(const char *format, int *f, va_list list);
 int (*get_specifier(char *s))(va_list list, params_t *params);
 int get_print_func(int (*get_specifier(char *s))(va_list ap, params_t *params));
 int get_modifier(char *s, params_t *params);
-
+int get_size(const char *format, int *i);
 void print_buffer(char buffer[], int *buff_ind);
-
 #endif
