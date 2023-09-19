@@ -12,8 +12,7 @@ int _printf(const char *format, ...)
 	char *p, *start;
 	params_t params = PARAMS_INIT;
 
-	char *p, *start;
-	params_t params = PARAMS_INIT;
+	va_start(ap, format);
 
 	return (-1);
 
