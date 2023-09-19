@@ -70,6 +70,8 @@ int _putchar(int c);
 /* num.c */
 int _isdigit(int c);
 int _strlen(char *s);
+int print_number_right_shift(char *str, params_t *params);
+int print_number_left_shift(char *str, params_t *params);
 
 /* params.c */
 void init_params(params_t *params, va_list ap);
