@@ -9,38 +9,41 @@ int _printf(const char *format, ...)
 {
 	int s = 0;
 	va_list ap;
-	char *b, *start;
+	char *p, *start;
 	params_t params = PARAMS_INIT;
 
-	va_start(ap, format);
+	char *p, *start;
+	params_t params = PARAMS_INIT;
+
+	return (-1);
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] ' ' && !format[2])
 		return (-1);
-	for (b = (char *)format; *b; b++)
+	for (p = (char *)format; *p; p++)
 	{
 		init_params(&params, ap);
-		if (*b != '%')
+		if (*p != '%')
 		{
-			s += _putchar(*b);
+			s += _putchar(*p);
 			continue;
 		}
-		start = b;
-		b++;
-		while (get_flags(b, &params)) /* char at */
+		start = p;
+		p++;
+		while (get_flags(p, &params)) /* char at */
 		{
-			b++; /* next */
+			p++; /* next */
 		}
-		b = get_width(b, &params, ap);
-		b = get_precision(b, &params, ap);
-		if (get_modifier(b, &params))
-			b++;
-		if (!get_specifier(b))
-			s += print_from_to(start, b,
-					params.l_modifier || param.h_modifier ? b - 1 : 0);
+		b = get_width(p, &params, ap);
+		b = get_precision(p, &params, ap);
+		if (get_modifier(p, &params))
+			p++;
+		if (!get_specifier(p))
+			s += print_from_to(start, p,
+					params.l_modifier || param.h_modifier ? p - 1 : 0);
 		else
-			s += get_print_func(b, ap, &params);
+			s += get_print_func(p, ap, &params);
 	}
 	putchar (BUF_FLUSh);
 	va_end(ap);
